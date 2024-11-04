@@ -142,6 +142,7 @@ func createNewConnection(addr string) (*grpc.ClientConn, error) {
 	// 使用 NewClient 创建连接
 	conn, err := grpc.NewClient(addr,
 		grpc.WithTransportCredentials(creds),
+		grpc.WithUserAgent("dart-grpc/2.0.0"),
 		grpc.WithKeepaliveParams(kacp),
 		grpc.WithInitialWindowSize(1<<20),     // 1MB
 		grpc.WithInitialConnWindowSize(1<<20), // 1MB
